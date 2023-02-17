@@ -64,6 +64,8 @@ for b in tqdm(batch(data, n=4), total=len(data) // 4 + (len(data) % 4 > 0), unit
     response = bot.ask(template + texts)
     new_content = response.split("\n\n")[-len(b):]
     for c, d in zip(new_content, b):
+        c = re.sub(r"\*\*", "<strong>", c, 1)
+        c = re.sub(r"\*\*", "</strong>", c, 1)
         d["new_content"] = c
 
 with open("news.json", "w") as fh:
