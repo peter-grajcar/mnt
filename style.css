@@ -25,6 +25,10 @@ header > h1 {
     padding: 0 0.7em;
 }
 
+header > h1 > a {
+    text-decoration: none;
+}
+
 header > p {
     font-weight: 300;
     font-style: italic;
@@ -36,6 +40,12 @@ main {
     margin: 0 auto;
     max-width: 756px;
     padding: 0 2em;
+    font-size: 14pt;
+    line-height: 1.6;
+}
+
+main h1 {
+    font-size: 18pt;
 }
 
 .article {
@@ -90,3 +100,6 @@ footer {
     font-size: 12pt;
 }
 
+.wtf {
+    margin-top: 0;
+}

@@ -62,15 +62,11 @@ for b in tqdm(batch(data, n=4), total=len(data) // 4 + (len(data) % 4 > 0), unit
     texts = "\n\n".join(article["content"] for article in b)
     bot.new_conversation()
     response = bot.ask(template + texts)
-    # print(template + texts)
-    # print()
-    # print(response)
-    # print("\n\n\n")
     new_content = response.split("\n\n")[-len(b):]
     for c, d in zip(new_content, b):
         d["new_content"] = c
 
 with open("news.json", "w") as fh:
-    json.dump(data + old_data, fh, indent=2)
+    json.dump([x for x in data if "new_content" in x] + old_data, fh, indent=2)
 
 browser.quit()
