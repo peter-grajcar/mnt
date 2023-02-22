@@ -16,7 +16,7 @@ browser = webdriver.Firefox(firefox_binary=firefox_dev_binary, options=options)
 
 browser.get("https://mnt.sk")
 
-with open("news.json") as fh:
+with open("../news.json") as fh:
     old_data = json.load(fh)
 
 ids = set(x["id"] for x in old_data)
@@ -68,7 +68,7 @@ for b in tqdm(batch(data, n=4), total=len(data) // 4 + (len(data) % 4 > 0), unit
         c = re.sub(r"\*\*", "</strong>", c, 1)
         d["new_content"] = c
 
-with open("news.json", "w") as fh:
+with open("../news.json", "w") as fh:
     json.dump([x for x in data if "new_content" in x] + old_data, fh, indent=2)
 
 browser.quit()
