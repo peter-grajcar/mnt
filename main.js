@@ -1,7 +1,7 @@
 
 const main = document.getElementById("main")
 
-fetch("http://www.ms.mff.cuni.cz/~grajcarp/mnt/news.json", {method: 'get', mode: 'cors'})
+fetch("https://peter-grajcar.github.io/mnt/news.json", {method: 'get', mode: 'cors'})
     .then((response) => response.text())
     .then((text) => {
         const json = '{ "data": ' + text + '}'
