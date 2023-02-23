@@ -9,7 +9,7 @@ fetch("https://peter-grajcar.github.io/mnt/news.json", {method: 'get', mode: 'co
 
         main.innerHTML = ""
 
-        for (x of data) {
+        for (x of data.subarray(0, 100)) {
             if (!x["new_content"])
                 continue
 
