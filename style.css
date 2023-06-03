@@ -72,6 +72,13 @@ main h1 {
     font-weight: bold;
 }
 
+.article img {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+}
+
+
 .article-link-to-original {
     position: relative;
 }
